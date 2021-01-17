@@ -1,7 +1,10 @@
 # About project
 Implementation of billing middleware software that handles SOAP requests from partners
 
-## ---- Request Coming into the middleware from partner
+## Testing
+Make a post request to middleware.php with the SOAP data as shown in sample partner request below.
+
+### ---- Request Coming into the middleware from partner
 <?xml version="1.0" encoding="utf-8"?><soap11:Envelope xmlns:soap11="http://schemas.xmlsoap.org/soap/envelope/" 
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://sdf.cellc.net/" 
 xmlns:ns="http://sdf.cellc.net/commonDataModel" xmlns="http://sdf.cellc.net/">
@@ -10,7 +13,7 @@ xmlns:ns="http://sdf.cellc.net/commonDataModel" xmlns="http://sdf.cellc.net/">
 <ns:processFlag>1</ns:processFlag></ns:header><ns:parameters><ns:parameter name="I_TRANSACTION_ID">1609620022827</ns:parameter></ns:parameters>
 </ns:SDF_Data></soap11:Body></soap11:Envelope>
 
-## ---- Request from the middleware to the core application
+### ---- Request from the middleware to the core application
 <?xml version="1.0" encoding="utf-8"?><soap11:Envelope xmlns:soap11="http://schemas.xmlsoap.org/soap/envelope/" 
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://sdf.cellc.net/" 
 xmlns:ns="http://sdf.cellc.net/commonDataModel" xmlns="http://sdf.cellc.net/">
@@ -19,7 +22,7 @@ xmlns:ns="http://sdf.cellc.net/commonDataModel" xmlns="http://sdf.cellc.net/">
 <ns:parameters><ns:parameter name="I_TRANSACTION_ID">1609620022827</ns:parameter></ns:parameters>
 </ns:SDF_Data></soap11:Body></soap11:Envelope>
 
-## ---- Response from the core application to the middle ware
+### ---- Response from the core application to the middle ware
 <?xml version="1.0" encoding="UTF-8"?><SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
 <SOAP-ENV:Body><ns0:SDF_Data xmlns:ns0="http://sdf.cellc.net/commonDataModel" processID=""><ns0:header><ns0:processTypeID>5000</ns0:processTypeID>
 <ns0:externalReference>1609620022827</ns0:externalReference><ns0:sourceID>1111111</ns0:sourceID><ns0:username>BBB</ns0:username><ns0:password>BBBCD</ns0:password><ns0:processFlag>1</ns0:processFlag>
@@ -30,7 +33,7 @@ xmlns:ns="http://sdf.cellc.net/commonDataModel" xmlns="http://sdf.cellc.net/">
 <ns0:parameter name="O_ERROR_DESCRIPTION">The request was successful</ns0:parameter></ns0:resultElements></ns0:result>
 </ns0:SDF_Data></SOAP-ENV:Body></SOAP-ENV:Envelope>
 
-## --- Response from the middleware to the partner
+### --- Response from the middleware to the partner
 <?xml version="1.0" encoding="UTF-8"?><SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
 <SOAP-ENV:Body><ns0:SDF_Data xmlns:ns0="http://sdf.cellc.net/commonDataModel" processID=""><ns0:header><ns0:processTypeID>7100</ns0:processTypeID>
 <ns0:externalReference>1609620022827</ns0:externalReference><ns0:sourceID>5555555</ns0:sourceID><ns0:username>AAA</ns0:username><ns0:password>AAAB</ns0:password><ns0:processFlag>1</ns0:processFlag>
