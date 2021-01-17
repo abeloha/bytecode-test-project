@@ -1,15 +1,21 @@
-
 <?php
-$xml_request = trim(file_get_contents('php://input'));
+$xml_request = NULL;
 
-if(empty($xml_request)){ //test that post data is sent
+//test for post request
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $xml_request = trim(file_get_contents('php://input'));
+}else{
     echo 'Method not allowed.'; die;
+}
+
+//test for post data
+if(empty($xml_request)){ 
+    echo 'Invalid request'; die;
 }
 
 header('Content-type: text/xml; charset=utf-8');
 
 $coreApp = new CoreApplication($xml_request);
-
 $xml_response  = <<<XML
         <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
         <SOAP-ENV:Body>
