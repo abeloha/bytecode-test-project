@@ -126,12 +126,6 @@ class CoreApplication
     private function loadTransactionData($transaction_id)
     {
         //the database logic goes here to fetch the needed data
-
-        if($transaction_id != '1609620022827'){
-            $this->errorDescription = 'invalid I_TRANSACTION_ID ('.$transaction_id.')';
-            return false;
-        }
-
         $data = array(
             'O_RECHARGE_STATUS'=>'SA',
             'O_RECHARGE_DESCRIPTION'=>'The request was successful',
