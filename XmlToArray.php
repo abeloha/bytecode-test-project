@@ -12,7 +12,6 @@ $response = <<<XML
 		<TXNID><PreTUPS Transaction ID></TXNID>
 		<MESSAGE><Transaction Message></MESSAGE>
 	</COMMAND>
-
 	XML;
 	
 libxml_use_internal_errors(true);
